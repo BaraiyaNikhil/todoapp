@@ -17,7 +17,7 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post("https://todoapp-backend-fmuj.onrender.com/api/auth/register", { username, email, password });
-      window.location.href = "/login";
+      navigate("/login");
     } catch (err) {
       setErrorMsg("Registration failed.");
       console.error("Registration error:", err.response ? err.response.data : err.message);
