@@ -13,7 +13,7 @@ const Notifications = ({ userId, closePopup }) => {
 
   const fetchNotifications = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/notifications/${userId}`);
+      const res = await axios.get(`https://todoapp-backend-fmuj.onrender.com/api/notifications/${userId}`);
       setNotifications(res.data);
     } catch (error) {
       console.error("Error fetching notifications:", error);
@@ -22,7 +22,7 @@ const Notifications = ({ userId, closePopup }) => {
 
   const markAsRead = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/api/notifications/${id}/markAsRead`);
+      await axios.put(`https://todoapp-backend-fmuj.onrender.com/api/notifications/${id}/markAsRead`);
       setNotifications((prev) =>
         prev.map((n) => (n._id === id ? { ...n, isRead: true } : n))
       );

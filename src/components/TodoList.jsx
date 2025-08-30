@@ -27,7 +27,7 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/todos");
+      const res = await axios.get("https://todoapp-backend-fmuj.onrender.com/api/todos");
       setTodos(res.data);
     } catch (error) {
       console.error("Error fetching todos:", error);
@@ -36,7 +36,7 @@ const TodoList = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/auth/users");
+      const res = await axios.get("https://todoapp-backend-fmuj.onrender.com/api/auth/users");
       setUsers(res.data);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -56,7 +56,7 @@ const TodoList = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:3000/api/todos", newTodo);
+      const res = await axios.post("https://todoapp-backend-fmuj.onrender.com/api/todos", newTodo);
       setTodos([...todos, res.data]);
       setTitle("");
       setDescription("");

@@ -16,7 +16,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/auth/register", { username, email, password });
+      await axios.post("https://todoapp-backend-fmuj.onrender.com/api/auth/register", { username, email, password });
       window.location.href = "/login";
     } catch (err) {
       setErrorMsg("Registration failed.");

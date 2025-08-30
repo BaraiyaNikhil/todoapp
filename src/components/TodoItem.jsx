@@ -17,7 +17,7 @@ const TodoItem = ({ todo, refreshTodos }) => {
 
   const deleteTodo = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/todos/${todo._id}`);
+      await axios.delete(`https://todoapp-backend-fmuj.onrender.com/api/todos/${todo._id}`);
       refreshTodos();
     } catch (error) {
       console.error("Error deleting todo:", error.response ? error.response.data : error.message);
@@ -33,7 +33,7 @@ const TodoItem = ({ todo, refreshTodos }) => {
         priority: editedPriority,
         status: editedStatus,
       };
-      await axios.put(`http://localhost:3000/api/todos/${todo._id}`, updatedTodo);
+      await axios.put(`https://todoapp-backend-fmuj.onrender.com/api/todos/${todo._id}`, updatedTodo);
       setIsEditing(false);
       refreshTodos();
     } catch (error) {
@@ -43,7 +43,7 @@ const TodoItem = ({ todo, refreshTodos }) => {
 
   const shareTask = async () => {
     try {
-      await axios.post("http://localhost:3000/api/todos/share", { todoId: todo._id, email: shareEmail });
+      await axios.post("https://todoapp-backend-fmuj.onrender.com/api/todos/share", { todoId: todo._id, email: shareEmail });
       alert("Task shared successfully!");
       setShowShare(false);
       setShareEmail("");

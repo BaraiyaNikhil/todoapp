@@ -17,7 +17,7 @@ const ResetPassword = () => {
       return;
     }
     try {
-      const res = await axios.post(`http://localhost:3000/api/auth/reset-password/${userId}`, { newPassword });
+      const res = await axios.post(`https://todoapp-backend-fmuj.onrender.com/api/auth/reset-password/${userId}`, { newPassword });
       setMessage(res.data.message);
       setTimeout(() => {
         navigate("/login");
