@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 const Login = ({ setToken }) => {
@@ -19,7 +19,7 @@ const Login = ({ setToken }) => {
       const res = await axios.post("https://todoapp-backend-fmuj.onrender.com/api/auth/login", { email, password });
       localStorage.setItem("userId", res.data.user._id);
       localStorage.setItem("token", res.data.token);
-      Navigate("/todos");
+      window.location.href = "/todos";
     } catch (err) {
       setErrorMsg("Login failed. Please check your credentials.");
       console.error("Login failed", err.response ? err.response.data : err.message);

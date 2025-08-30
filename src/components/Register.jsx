@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Register.css";
-import { Navigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -18,7 +17,7 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post("https://todoapp-backend-fmuj.onrender.com/api/auth/register", { username, email, password });
-      Navigate("/login");
+      window.location.href = "/login";
     } catch (err) {
       setErrorMsg("Registration failed.");
       console.error("Registration error:", err.response ? err.response.data : err.message);
